@@ -1,0 +1,63 @@
+def create_file():
+    f=open('zen_of_python.txt', 'w')
+    data=input("Enter the data to be inserted")
+    f.write(data)
+
+
+def read_file():
+    f=open('zen_of_python.txt', 'r')
+    data = f.read()
+    print(data)
+
+
+def count_words():
+    f=open('zen_of_python.txt', 'r')
+    data = f.read()
+    words = data.split()
+    print(f"Total number of words: {len(words)}")
+
+
+def capitalize_first_letter():
+    f=open('zen_of_python.txt', 'r')
+    data = f.read()
+    capitalized_data=data.title()
+    f=open('zen_of_python.txt', 'w')
+    f.write(capitalized_data)
+
+
+def print_reverse():
+    f=open('zen_of_python.txt', 'r')
+    data = f.read()
+    reversed_data = data[::-1]
+    print(reversed_data)
+
+
+while True:
+    print("\nMenu:")
+    print("1. Create a File and Write the data")
+    print("2. Print all data in the file")
+    print("3. Print total number of words in the file")
+    print("4. Capitalize First Letter of Every Word")
+    print("5. Print contents of the file in reverse order")
+    print("6. Exit")
+
+
+    choice = input("Enter your choice (1-6): ")
+
+
+    if choice == '1':
+                create_file()
+    elif choice == '2':
+        read_file()
+    elif choice == '3':
+        count_words()
+    elif choice == '4':
+        capitalize_first_letter()
+        read_file()
+    elif choice == '5':
+        print_reverse()
+    elif choice == '6':
+        print("Exiting program")
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 6.")
