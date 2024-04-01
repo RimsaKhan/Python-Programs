@@ -1,0 +1,8 @@
+try:
+    age=int(input("enter the age"))
+    if age<=18 or age>=100:
+        raise ValueError("Age must be above 18 and below 100")
+    print("Valid age entered : ",age)
+
+except ValueError as e:
+    print("error", e)
