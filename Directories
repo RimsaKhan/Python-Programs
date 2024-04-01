@@ -1,0 +1,37 @@
+print("Menu")
+while(True):
+
+
+    print("1. Print a Dictionary with numbers and their squared values till 10")
+    print("2.Print the sum of all values in the Dictionary")
+    print("3.Ask a number from the user and Remove it from the Dictionary and Print")
+    print("4.Print all items in the dictionary whose values are above 50")
+    print("Any other key, Exit")
+    ch=int(input("Enter the choice "))
+   
+    if ch not in range(1,6):
+        print("Invalid")
+        exit()
+    d={}
+    for i in range(1,11):
+        d[i]=i*i
+     
+    if ch==1:
+ 
+       print("Dictionary created and printed:", d)
+
+
+    elif ch==2:
+        total= sum(d.values())
+        print("Sum of all values in the Dictionary:", total)
+    elif ch==3:
+        num= int(input("Enter a number to remove from the Dictionary: "))
+        if num in d:
+                d.pop(num)
+                print(f"Removed {num} from the Dictionary. Updated Dictionary:",d)
+        else:
+                print(f"{num} not found in the Dictionary.")
+    elif ch==4:
+        above_50 = {key: value for key, value in d.items() if value > 50}
+        print("Items in the Dictionary whose values are above 50:", above_50)
+   
