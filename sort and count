@@ -1,0 +1,49 @@
+print("Menu")
+while True:
+    print("1. Print the Second Largest Number")
+    print("2. Swap the first and last items of that list")
+    print("3. Remove the duplicate members in that list")
+    print("4. Print the number Occurring Odd Number of Times")
+    print("5. Print the list which has the square of the numbers")
+    print("Any other key, Exit")
+    ch = int(input("Enter the choice "))
+    
+    if ch not in range(1, 6):
+        print("Invalid choice!")
+        break  # Exiting the loop if choice is invalid
+
+    a = []
+    n = int(input("Enter the list size: "))
+    print("Enter the elements:")
+    for i in range(n):
+        a.append(int(input()))
+
+    if ch == 1:
+        a.sort(reverse=True)#sort the string and then reverse it
+        l = a[0]#Assigning the first element of list 'a' to variable 'l' i.e the largest element
+        for i in a: #iterating through each element in list 'a' 
+            if l != i:#Checking if the current element is not equal to l
+                print("Second largest number is:", i) #Printing the current element
+                break
+    elif ch == 2:
+        a[0], a[-1] = a[-1], a[0]# swapping the first elementa[0]with a[-1]and the last element a[-1] to a[0]
+        print("List after swapping first and last items:", a)
+    elif ch == 3:
+        b = []
+        for i in a:
+            if i not in b:#checks if the current that is a element is not already present in b 
+                b.append(i)
+        print("List after removing duplicates:", b)
+    elif ch == 4:
+        b = []
+        for i in a:
+            if a.count(i) % 2 != 0 and i not in b:
+                b.append(i)
+        print("Numbers occurring odd number of times:", b)
+    elif ch == 5:
+        b = []
+        for i in a:
+            if (i ** 2) in a and i not in b:#checking if square of the current element is present in list 'a' and if the current element is not itself present in list 'b'
+                b.append(i)
+        print("List containing square of the numbers:", b)
+        
